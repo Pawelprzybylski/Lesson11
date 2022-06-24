@@ -8,7 +8,7 @@ public class NumbersTest {
     @ParameterizedTest
     @ValueSource(ints = {20, 8, 2, 4})
     void shouldVerifyNumberIsDivideBy2(int input) {
-        Assertions.assertTrue(Numbers.divide(input));
+        Assertions.assertTrue(Numbers.isEvenNumber(input));
     }
 
     @ParameterizedTest
@@ -21,7 +21,7 @@ public class NumbersTest {
     @ParameterizedTest
     @ValueSource(ints = {25, 21, 31, 5})
     void shouldVerifyNumberIsNotDivideBy2(int input) {
-        Assertions.assertFalse(Numbers.divide(input));
+        Assertions.assertFalse(Numbers.isEvenNumber(input));
     }
 
     @ParameterizedTest

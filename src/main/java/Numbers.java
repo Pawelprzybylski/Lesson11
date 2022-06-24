@@ -1,6 +1,6 @@
 public class Numbers {
 
-    public static boolean divide(int number) {
+    public static boolean isEvenNumber(int number) {
         return number % 2 == 0;
     }
 
