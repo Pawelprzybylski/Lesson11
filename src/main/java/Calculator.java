@@ -1,30 +1,36 @@
 public class Calculator implements CurrencyUtils {
 
-public double convertZlotyToEuro(double zl){
-    return zl*getEuroRate();
-}
+    CurrentRateProvider provider;
 
-public  double convertZlotyToDollars(double zl){
-    return zl*getDollarsRate();
-}
+    public Calculator(CurrentRateProvider currentRateProvider) {
+        this.provider = currentRateProvider;
+    }
 
-public  double convertZlotyToBritishPounds(double zl){
-    return  zl*getBritishPoundsRate();
-}
+    public double convertZlotyToEuro(double zl) {
+        return zl * getEuroRate();
+    }
+
+    public double convertZlotyToDollars(double zl) {
+        return zl * getDollarsRate();
+    }
+
+    public double convertZlotyToBritishPounds(double zl) {
+        return zl * getBritishPoundsRate();
+    }
 
     @Override
     public double getEuroRate() {
-        return CurrentRate.getEuro();
+        return new CurrentRateProvider().get(Currency.EURO);
     }
 
     @Override
     public double getDollarsRate() {
-        return CurrentRate.getDollars();
+        return new CurrentRateProvider().get(Currency.DOLLARS);
     }
 
     @Override
     public double getBritishPoundsRate() {
-        return CurrentRate.getBritishPounds();
+        return provider.get(Currency.BRITISH_POUNDS);
     }
 
 }

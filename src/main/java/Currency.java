@@ -1,4 +1,5 @@
 public enum Currency {
+
     ZŁOTY("zł"),
     EURO("\u20ac"),
     DOLLARS("$"),
@@ -9,4 +10,5 @@ public enum Currency {
     Currency(String symbol) {
         this.symbol = symbol;
     }
+
 }
