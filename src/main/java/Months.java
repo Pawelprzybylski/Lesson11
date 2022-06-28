@@ -1,7 +1,7 @@
 import java.time.Month;
 public class Months {
 
-    public static void getSeason(Month month) {
+    public static void printSeason(Month month) {
         switch (month) {
             case DECEMBER:
             case JANUARY:
