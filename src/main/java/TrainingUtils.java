@@ -1,7 +1,5 @@
 public interface TrainingUtils {
 
-    public double calculateWeightedAverage();
-
-    public void getTrainingEfficiency();
+    public String getTrainingEfficiency(int time, int calories, int pulse);
 
 }
