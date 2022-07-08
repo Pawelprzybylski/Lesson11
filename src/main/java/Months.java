@@ -1,28 +1,27 @@
 import java.time.Month;
 public class Months {
 
-    public static void printSeason(Month month) {
+    public static Enum<Seasons> getSeason(Month month) {
+
         switch (month) {
             case DECEMBER:
             case JANUARY:
             case FEBRUARY:
-                System.out.println(Seasons.WINTER);
-                break;
+                return Seasons.WINTER;
             case MARCH:
             case APRIL:
             case MAY:
-                System.out.println(Seasons.SPRING);
-                break;
+                return Seasons.SPRING;
             case JUNE:
             case JULY:
             case AUGUST:
-                System.out.println(Seasons.SUMMER);
-                break;
+               return Seasons.SUMMER;
             case SEPTEMBER:
             case OCTOBER:
             case NOVEMBER:
-                System.out.println(Seasons.AUTUMN);
+               return Seasons.AUTUMN;
         }
+        return null;
     }
 
 }
