@@ -3,7 +3,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.platform.commons.util.StringUtils;
 
 public class TextTest {
 
@@ -15,14 +14,14 @@ public class TextTest {
 
     @ParameterizedTest
     @NullSource
-    void shouldVerifyNullStringToUpperCase(String input) {
-        Assertions.assertEquals(input, null);
+    void shouldReturnNullWhenNull(String input) {
+        Assertions.assertNull(Text.toUpperCase(input));
     }
 
     @ParameterizedTest
     @EmptySource
-    void shoulsdVerifyEmptyStringToUpperCase(String input) {
-        Assertions.assertTrue(StringUtils.isBlank(input));
+    void shouldConvertEmptyStringToUpperCase(String input) {
+        Assertions.assertEquals("", Text.toUpperCase(input));
     }
 
 }
