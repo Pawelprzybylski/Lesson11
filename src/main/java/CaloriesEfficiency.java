@@ -3,7 +3,7 @@ public class CaloriesEfficiency {
     public int getCaloriesEfficiency(int calories) {
 
         if (calories <= 0) {
-            throw new IllegalArgumentException("Input value " + calories + "is not correct ");
+            throw new IllegalArgumentException("Input value " + calories + " is not correct");
         }
         if (calories <= 300) {
             return 1;

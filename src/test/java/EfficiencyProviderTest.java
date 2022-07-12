@@ -29,6 +29,30 @@ public class EfficiencyProviderTest {
     }
 
     @Test
+    public void shouldCalculateGoodTrainingEfficiency() {
+        //given
+        int time = 25;
+        int calories = 350;
+        int pulse = 180;
+
+        TimeEfficiency timeEfficiency = Mockito.mock(TimeEfficiency.class);
+        Mockito.when(timeEfficiency.getTimeEfficiency(time)).thenReturn(1);
+
+        CaloriesEfficiency caloriesEfficiency = Mockito.mock(CaloriesEfficiency.class);
+        Mockito.when(caloriesEfficiency.getCaloriesEfficiency(calories)).thenReturn(2);
+
+        PulseEfficiency pulseEfficiency = Mockito.mock(PulseEfficiency.class);
+        Mockito.when(pulseEfficiency.getPulseEfficiency(pulse)).thenReturn(1);
+
+        //when
+        EfficiencyProvider efficiencyProvider = new EfficiencyProvider(timeEfficiency, caloriesEfficiency, pulseEfficiency);
+        String result = efficiencyProvider.getTrainingEfficiency(time, calories, pulse);
+
+        //then
+        Assertions.assertEquals("good", result);
+    }
+
+    @Test
     public void shouldCalculateVeryGoodTrainingEfficiency() {
         //given
         int time = 10;
@@ -97,7 +121,7 @@ public class EfficiencyProviderTest {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> efficiencyProvider.getTrainingEfficiency(time, calories, pulse));
 
         //then
-        Assertions.assertEquals("Input values " + time + calories + pulse + " is not correct", exception.getMessage());
+        Assertions.assertEquals("Check your training data", exception.getMessage());
     }
 
 }

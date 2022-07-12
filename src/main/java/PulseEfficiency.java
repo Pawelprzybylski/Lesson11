@@ -3,7 +3,7 @@ public class PulseEfficiency {
     public int getPulseEfficiency(int pulse) {
 
         if (pulse <= 0) {
-            throw new IllegalArgumentException("Input value " + pulse + "is not correct ");
+            throw new IllegalArgumentException("Input value " + pulse + " is not correct");
         }
         if (pulse > 175) {
             return 1;

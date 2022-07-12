@@ -1,4 +1,4 @@
-public class EfficiencyProvider implements TrainingUtils {
+public class EfficiencyProvider {
 
     final private static int TRAINING_TIME_RATING = 1;
     final private static int CALORIES_BURN_RATING = 2;
@@ -16,15 +16,19 @@ public class EfficiencyProvider implements TrainingUtils {
         this.averagePulse = averagePulse;
     }
 
-    @Override
+
     public String getTrainingEfficiency(int time, int calories, int pulse) {
 
-        double result = ((trainingTime.getTimeEfficiency(time) * TRAINING_TIME_RATING) +
+        double fractionNumerator = ((trainingTime.getTimeEfficiency(time) * TRAINING_TIME_RATING) +
                 (caloriesBurn.getCaloriesEfficiency(calories) *
-                        CALORIES_BURN_RATING) + (averagePulse.getPulseEfficiency(pulse) * AVERAGE_PULSE_RATING)) / (TRAINING_TIME_RATING + CALORIES_BURN_RATING + AVERAGE_PULSE_RATING);
+                        CALORIES_BURN_RATING) + (averagePulse.getPulseEfficiency(pulse) * AVERAGE_PULSE_RATING));
+
+        double fractionDenominator = (TRAINING_TIME_RATING + CALORIES_BURN_RATING + AVERAGE_PULSE_RATING);
+
+        double result = fractionNumerator / fractionDenominator;
 
         if (result <= 0) {
-            throw new RuntimeException("Input values " + time + calories + pulse + " is not correct");
+            throw new RuntimeException("Check your training data");
         }
         if (result < 1.2) {
             return "low";
