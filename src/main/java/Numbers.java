@@ -6,9 +6,10 @@ public class Numbers {
 
     public static int add(int number) {
         int sum = 0;
-        while (number > 0) {
-            sum = sum + number % 10;
-            number = number / 10;
+        int element=number;
+        while (element > 0) {
+            sum = sum + element % 10;
+            element = element / 10;
         }
         return sum;
     }
