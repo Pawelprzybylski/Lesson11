@@ -1,14 +1,14 @@
 public class SalaryCalculator {
-    BaseSalaryUtils baseSalary;
-    SaturdayBonusUtils saturdayBonus;
+    private final BaseSalaryUtils baseSalary;
+    private final SaturdayBonusUtils saturdayBonus;
 
-    SalaryCalculator(BaseSalaryUtils baseSalaryUtils, SaturdayBonusUtils saturdayBonusUtils) {
+  public SalaryCalculator(BaseSalaryUtils baseSalaryUtils, SaturdayBonusUtils saturdayBonusUtils) {
         this.baseSalary = baseSalaryUtils;
         this.saturdayBonus = saturdayBonusUtils;
     }
 
-    public double calculateTotalSalary(int bonus, int Saturdays) {
-        return this.baseSalary.getBaseSalary() + bonus + this.saturdayBonus.getSaturdayBonus() * Saturdays;
+    public double calculateTotalSalary(int bonus, int saturdays) {
+        return this.baseSalary.getBaseSalary() + bonus + this.saturdayBonus.getSaturdayBonus() * saturdays;
     }
 
 }
