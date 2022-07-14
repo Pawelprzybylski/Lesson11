@@ -1,16 +1,16 @@
 public class EfficiencyProvider {
 
-    final private static int TRAINING_TIME_RATING = 1;
-    final private static int CALORIES_BURN_RATING = 2;
-    final private static int AVERAGE_PULSE_RATING = 3;
+    private static final int TRAINING_TIME_RATING = 1;
+     private static final int CALORIES_BURN_RATING = 2;
+     private static final int AVERAGE_PULSE_RATING = 3;
 
-    TimeEfficiency trainingTime;
+    private final TimeEfficiency trainingTime;
 
-    CaloriesEfficiency caloriesBurn;
+    private final CaloriesEfficiency caloriesBurn;
 
-    PulseEfficiency averagePulse;
+    private final PulseEfficiency averagePulse;
 
-    EfficiencyProvider(TimeEfficiency trainingTime, CaloriesEfficiency caloriesBurn, PulseEfficiency averagePulse) {
+    public EfficiencyProvider(TimeEfficiency trainingTime, CaloriesEfficiency caloriesBurn, PulseEfficiency averagePulse) {
         this.trainingTime = trainingTime;
         this.caloriesBurn = caloriesBurn;
         this.averagePulse = averagePulse;
